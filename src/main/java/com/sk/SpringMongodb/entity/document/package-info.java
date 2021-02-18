@@ -1,0 +1,1 @@
+package com.sk.SpringMongodb.entity.document;
