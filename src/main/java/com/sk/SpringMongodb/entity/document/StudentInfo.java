@@ -22,10 +22,12 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 public class StudentInfo {
 	
-	@Id
+	@NonNull
+	   @Id
 	private String id;
 	
      @NonNull
+  
 	 private Integer sno;
      
      @NonNull

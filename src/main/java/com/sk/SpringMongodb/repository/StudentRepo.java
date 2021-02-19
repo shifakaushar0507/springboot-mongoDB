@@ -14,5 +14,8 @@ import com.sk.SpringMongodb.entity.document.StudentInfo;
  */
 public interface StudentRepo extends MongoRepository<StudentInfo, String> {
 
-	StudentDTO save(StudentDTO studentdoc); 
+	
+	
+	StudentInfo findBySno(Integer sno);
+	
 }

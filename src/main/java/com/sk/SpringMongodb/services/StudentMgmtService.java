@@ -39,23 +39,35 @@ public class StudentMgmtService implements IStudentService {
 	}
 
 	@Override
-	public List findAll() {
+	public List<StudentInfo> findAll() {
 		
 		return studentRepo.findAll();
 	}
 
 	
 
+	@Override
+	public String deleteBySno(Integer sno) {
+		
+		
+	StudentInfo studentInfo	=studentRepo.findBySno(sno);
+		
+		studentRepo.delete(studentInfo);
+		return "Deleted Record "+sno;
+	}
 
-//	@Override
-//	public String updateStudent(StudentDTO studentDto) {
-//		//convert dto  to doc
-//		StudentDTO studentdoc=new StudentDTO();
-//		BeanUtils.copyProperties(studentDto, studentdoc);
-//		//update the documeent
-//		studentdoc=studentRepo.save(studentdoc);
-//		return studentdoc.getSno()+"Record updated succsessfully";
-//	}
+	
+
+
+	@Override
+	public StudentInfo updateStudent(StudentDTO studentDto) {
+		//convert dto  to doc
+		StudentInfo studentdoc=new StudentInfo();
+		BeanUtils.copyProperties(studentDto, studentdoc);
+		//update the document
+	 StudentInfo response =	studentRepo.save(studentdoc);
+		return response;
+	}
 
 }
 
