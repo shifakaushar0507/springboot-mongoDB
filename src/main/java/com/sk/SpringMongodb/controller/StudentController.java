@@ -36,7 +36,7 @@ public class StudentController {
 	public ResponseEntity createStudent(@RequestBody StudentDTO studentDto) {
 		
 		String response = studentmgmtService.registerStudent(studentDto);
-		return ResponseEntity.status(HttpStatus.CREATED).build();
+		return ResponseEntity.status(HttpStatus.CREATED).body(response);
 		
 	}
 	
@@ -57,15 +57,24 @@ public class StudentController {
 		
 	}
 	
-//	@PutMapping("/student/")
-//	public ResponseEntity updateStudent(@RequestBody StudentDTO studenetDto) {
-//		
-//	StudentInfo stInfo =	studentmgmtService.updateStudent(studenetDto);
-//		return ResponseEntity.ok(stInfo);
-//		
-//	}
-//	
-//	
+	
+	@DeleteMapping("/student")
+public String deleteAll() {
+		
+		studentmgmtService.deleteAll();
+		
+		return "All records Deleted";
+		
+	}
+	
+	@PutMapping("/student")
+	public StudentInfo updateStudent(@RequestBody StudentDTO dto) {
+	 StudentInfo response	 =  studentmgmtService.updateStudent(dto);
+		return  response;
+
+	}
+	
+	
 	}
 	
 	

@@ -14,12 +14,10 @@ import com.sk.SpringMongodb.entity.document.StudentInfo;
  */
 public interface IStudentService {
 	public String registerStudent(StudentDTO dto);
-    public StudentInfo updateStudent(StudentDTO dto);
+   public StudentInfo updateStudent(StudentDTO dto);
     public List findAll();
-//    public List findBySno();
-//	public List findByName();
-
 	String deleteBySno(Integer sno);
+	public void deleteAll();
 	
 	
 
